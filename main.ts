@@ -12,7 +12,7 @@ if (entry.trim().length === 0) {
   throw new Error("entry must not be only whitespace");
 }
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const outDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "entry.txt"), entry, "utf8");
-console.log(`wrote entry.txt (${chars} chars) to ${outDir}`);
+console.log(`entry.txt written: ${chars} characters -> ${outDir}`);
